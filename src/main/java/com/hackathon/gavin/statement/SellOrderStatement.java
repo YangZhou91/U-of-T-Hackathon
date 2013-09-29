@@ -19,11 +19,10 @@ import com.hackathon.gavin.account.MyAccountGenerator;
 public class SellOrderStatement {
     
     private EPStatement statement;
-    static MyAccount myAccountInfo = MyAccountGenerator.createMyAccount();
     public SellOrderStatement(EPAdministrator admin){
     
         String EPLStatement;
-        EPLStatement = "select bid from CurrencyEvent where bid > "+ myAccountInfo.getPrice();
+        EPLStatement = "select bid from CurrencyEvent where bid > "+ MyAccountGenerator.createMyAccount().getPrice();
         
         statement = admin.createEPL(EPLStatement);
     }
